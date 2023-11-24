@@ -30,8 +30,6 @@ public final class LaunchApp {
      * @throws IllegalArgumentException in case of reflection issues
      */
     public static void main(final String... args) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        
-        DrawNumberSwingView miao = new DrawNumberSwingView();
 
         final Class<DrawNumberSwingView> c1 = DrawNumberSwingView.class;
         final Class<DrawNumberViewOutput> c2 = DrawNumberViewOutput.class;
