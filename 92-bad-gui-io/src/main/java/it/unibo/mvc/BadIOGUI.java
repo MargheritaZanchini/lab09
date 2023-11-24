@@ -49,13 +49,12 @@ public class BadIOGUI {
         canvas.setLayout(new BorderLayout());
         final JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-        frame.setContentPane(panel);
         final JButton write = new JButton("Write on file");
         panel.add(write);
         final JButton read = new JButton("read");
         panel.add(read);
-        //canvas.add(write, BorderLayout.CENTER);
-        //frame.setContentPane(canvas);
+        canvas.add(panel, BorderLayout.CENTER);
+        frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
          * Handlers
@@ -88,7 +87,7 @@ public class BadIOGUI {
                     BufferedReader bR = new BufferedReader(new InputStreamReader(is));
                     String n;
                     while((n = bR.readLine()) != null){
-                        System.out.print(n);
+                        System.out.println(n);
                     }
                 } catch (Exception e1) {
                     // TODO Auto-generated catch block
