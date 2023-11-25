@@ -15,7 +15,7 @@ public class DrawNumberViewOutput implements DrawNumberView{
 
     @Override
     public void start() {
-        System.out.println("called method start");
+        //System.out.println("called method start");
     }
 
     @Override

@@ -29,20 +29,20 @@ public final class LaunchApp {
      * @throws IllegalAccessException in case of reflection issues
      * @throws IllegalArgumentException in case of reflection issues
      */
-    public static void main(final String... args) throws NoSuchMethodException, SecurityException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public static void main(final String... args) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException, ClassNotFoundException {
 
-        final Class<DrawNumberSwingView> c1 = DrawNumberSwingView.class;
-        final Class<DrawNumberViewOutput> c2 = DrawNumberViewOutput.class;
+        final Class<?> class1 = Class.forName("it.unibo.mvc.view.DrawNumberSwingView");
+        final Class<?> class2 = Class.forName("it.unibo.mvc.view.DrawNumberViewOutput");
 
-        final Constructor<DrawNumberSwingView> cons1= c1.getConstructor();
-        final Constructor<DrawNumberViewOutput> cons2= c2.getConstructor();
+        final Constructor<?> cons1= class1.getConstructor();
+        final Constructor<?> cons2= class2.getConstructor();
 
         final var model = new DrawNumberImpl();
         final DrawNumberController app = new DrawNumberControllerImpl(model);
 
         for(int i=0; i<3; i++){
-            app.addView(cons1.newInstance());
-            app.addView(cons2.newInstance());
+            app.addView((DrawNumberView) cons1.newInstance());
+            app.addView((DrawNumberView)cons2.newInstance());
         }
     }
 }
